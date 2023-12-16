@@ -1,7 +1,7 @@
 const myFunc = (message1, message2) => {
   console.log(message1);
-  message2.forEach(element => {
-    console.log(element);
+  message2.forEach(message => {
+    console.log(message);
   });
 }
 
