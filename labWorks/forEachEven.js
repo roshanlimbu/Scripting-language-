@@ -4,6 +4,8 @@ print all the even numbers in the array. */
 
 const myArr = [1, 2, 3, 4, 5];
 myArr.forEach(num => {
-  console.log(num + 2);
+  if (num % 2 == 0) {
+    console.log(num);
+  }
 })
 
