@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./todo.css" />
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <div class="todo">
+      <input type="text" id="taskInput" placeholder="Enter a task..." />
+      <button onclick="addTask()">Add Task</button>
+    </div>
+    <div id="taskList">
+      <!-- Tasks will be dynamically added here -->
+    </div>
+
+    <script>
+      function addTask() {
+        let taskInput = document.getElementById("taskInput");
+        let taskList = document.getElementById("taskList");
+
+        // checking here if the input is there or not
+        if (taskInput.value.trim() === "") {
+          alert("Please enter a task.");
+          return;
+        }
+
+        let task = document.createElement("div");
+        task.className = "task";
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.addEventListener("change", function () {
+          task.classList.toggle("completed", checkbox.checked);
+        });
+        let taskText = document.createElement("span");
+        taskText.textContent = taskInput.value;
+        let deleteBtn = document.createElement("span");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.textContent = "X";
+        deleteBtn.addEventListener("click", function () {
+          taskList.removeChild(task);
+        });
+
+        task.appendChild(checkbox);
+        task.appendChild(taskText);
+        task.appendChild(deleteBtn);
+        taskList.appendChild(task);
+
+        taskInput.value = "";
+      }
+    </script>
+  </body>
+</html>
