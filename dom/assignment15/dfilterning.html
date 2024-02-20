@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Content Filtering</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 10px;
+      }
+      .filter {
+        margin-bottom: 10px;
+      }
+      .product {
+        border: 1px solid red;
+        padding: 10px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="filter">
+        <label for="category">Category:</label>
+        <select id="category">
+          <option value="all">All</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Books">Books</option>
+        </select>
+        <label for="price-range">Price Range:</label>
+        <select id="price-range">
+          <option value="all">All</option>
+          <option value="0-50">$0 - $50</option>
+          <option value="50-100">$50 - $100</option>
+          <option value="100+">$100+</option>
+        </select>
+      </div>
+      <div id="productList"></div>
+    </div>
+
+    <script>
+      const products = [
+        { name: "iphone 15", category: "Electronics", price: 1500 },
+        { name: "Jacket", category: "Clothing", price: 50 },
+        { name: "Scripting language", category: "Books", price: 15 },
+        { name: "ipad pro", category: "Electronics", price: 1000 },
+        { name: "Cap", category: "Clothing", price: 10 },
+        { name: "Software Engineering", category: "Books", price: 20 },
+      ];
+
+      function renderProducts() {
+        const categoryFilter = document.getElementById("category").value;
+        const priceRangeFilter = document.getElementById("price-range").value;
+        const productList = document.getElementById("productList");
+
+        // Clear existing products
+        productList.innerHTML = "";
+
+        products.forEach((product) => {
+          if (
+            (categoryFilter === "all" || product.category === categoryFilter) &&
+            (priceRangeFilter === "all" ||
+              (priceRangeFilter === "0-50" && product.price <= 50) ||
+              (priceRangeFilter === "50-100" &&
+                product.price > 50 &&
+                product.price <= 100) ||
+              (priceRangeFilter === "100+" && product.price > 100))
+          ) {
+            const productElement = document.createElement("div");
+            productElement.className = "product";
+            productElement.textContent = `${product.name} - $${product.price}`;
+            productList.appendChild(productElement);
+          }
+        });
+      }
+
+      document
+        .getElementById("category")
+        .addEventListener("change", renderProducts);
+      document
+        .getElementById("price-range")
+        .addEventListener("change", renderProducts);
+
+      // Initial render
+      renderProducts();
+    </script>
+  </body>
+</html>
