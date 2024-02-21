@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Form Validation</title>
+    <style>
+      input.invalid {
+        border: 1px solid red;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+    </style>
+    <script>
+      function validateForm() {
+        var name = document.getElementById("username");
+        var email = document.getElementById("email");
+        var password = document.getElementById("password");
+        var nameError = document.getElementById("name-error");
+        var emailError = document.getElementById("email-error");
+        var passwordError = document.getElementById("password-error");
+        var isValid = true;
+
+        if (name.value.trim() === "") {
+          name.classList.add("invalid");
+          nameError.innerText = "Please enter your name.";
+          isValid = false;
+        } else {
+          name.classList.remove("invalid");
+          nameError.innerText = "";
+        }
+
+        if (email.value.trim() === "") {
+          email.classList.add("invalid");
+          emailError.innerText = "Please enter your email.";
+          isValid = false;
+        } else {
+          email.classList.remove("invalid");
+          emailError.innerText = "";
+        }
+
+        if (password.value.trim() === "") {
+          password.classList.add("invalid");
+          passwordError.innerText = "Please enter your password.";
+          isValid = false;
+        } else {
+          password.classList.remove("invalid");
+          passwordError.innerText = "";
+        }
+
+        return isValid;
+        if (isValid == false) {
+          name.classList.add("invalid");
+          nameError.innerText = "Please enter your name.";
+
+          email.classList.add("invalid");
+          emailError.innerText = "Please enter your email.";
+
+          password.classList.add("invalid");
+          passwordError.innerText = "Please enter your password.";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Registration Form</h2>
+    <form onsubmit="return validateForm()">
+      <label for="username">Username:</label><br />
+      <input type="text" id="username" name="username" />
+      <div id="name-error" class="error-message"></div>
+      <br />
+
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" />
+      <div id="email-error" class="error-message"></div>
+      <br />
+
+      <label for="password">Password:</label><br />
+      <input type="password" id="password" name="password" />
+      <div id="password-error" class="error-message"></div>
+      <br />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
