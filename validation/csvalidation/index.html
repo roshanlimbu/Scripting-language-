@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Client Side Registration Form</title>
+  </head>
+  <body>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <label>Email:</label>
+      <input type="email" id="email" required /><br /><br />
+
+      <label>Age:</label>
+      <input type="number" id="age" min="1" max="120" required /><br /><br />
+
+      <label>Password:</label>
+      <input type="password" id="password" required /><br /><br />
+
+      <label>Confirm Password:</label>
+      <input type="password" id="confirmPassword" required /><br /><br />
+
+      <label>Zip Code:</label>
+      <input
+        type="text"
+        id="zipCode"
+        pattern="\d{5}(-\d{4})?"
+        required
+      /><br /><br />
+
+      <label>Terms and Conditions:</label>
+      <input type="checkbox" id="terms" required /><br /><br />
+
+      <label>URL:</label>
+      <input type="url" id="url" required /><br /><br />
+
+      <label>Date:</label>
+      <input type="date" id="date" max="9999-12-31" required /><br /><br />
+
+      <label>File:</label>
+      <input type="file" id="file" required /><br /><br />
+
+      <label>Country:</label>
+      <select id="country" required>
+        <option value="">Select Country</option>
+        <option value="Nepal">Nepal</option>
+        <option value="China">China</option>
+        <option value="India">India</option>
+        <option value="Vietnam">Vietnam</option>
+      </select>
+      <br />
+      <br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
