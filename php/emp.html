@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>emp</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <?php $emp = [ [1, "anup", "manager", 30000], [2, "bishal", "sales man",
+    15000], [3, "bisnu", "peon", 5000], ]; foreach($emp as $val1) {
+    foreach($val1 as $val2) { echo $val2 . " "; } echo "<br />"; } ?>
+
+    <form method="post" action="">
+      <label for="name">Name:</label><br />
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="phone">Phone Number:</label><br />
+      <input type="text" id="phone" name="phone" /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
