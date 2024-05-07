@@ -21,4 +21,3 @@ function range(start, end) {
 
 const primeNumbers = range(1, 100);
 console.log("Prime numbers between 1 and 100:", primeNumbers);
-
