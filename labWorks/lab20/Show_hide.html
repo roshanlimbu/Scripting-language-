@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show and Hide Div</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+      #myDiv {
+        display: none;
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="toggleButton">Show/Hide Div</button>
+    <div id="myDiv">Hello, I'm a Div!</div>
+
+    <script>
+      $(document).ready(function () {
+        $("#toggleButton").click(function () {
+          $("#myDiv").toggle();
+        });
+      });
+    </script>
+  </body>
+</html>
