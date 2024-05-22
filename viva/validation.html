@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Client-side validation</title>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <form id="registrationForm" action="">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="required" required /> <br />
+
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age" required /><br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required /><br />
+
+      <label for="confirmPassword">Confirm Password:</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        required
+      /><br />
+
+      <label for="zip">Zip Code:</label>
+      <input type="text" id="zip" name="zip" required /><br />
+
+      <label for="terms">
+        <input type="checkbox" id="terms" name="terms" required /> I agree to
+        the terms and conditions </label
+      ><br />
+
+      <label for="url">Website:</label>
+      <input type="text" id="url" name="url" /><br />
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" required /><br />
+
+      <label for="file">Upload File:</label>
+      <input type="file" id="file" name="file" /><br />
+
+      <label for="country">Country:</label>
+      <select name="country" id="country">
+        <option value="">Select the country:</option>
+        <option value="Nepal">Nepal</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="China">China</option>
+        <option value="Japan">Japan</option>
+      </select>
+      <br />
+
+      <input type="submit" />
+      <scrip src="./app.js"></scrip>
+    </form>
+  </body>
+</html>
